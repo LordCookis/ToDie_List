@@ -1,0 +1,111 @@
+body {
+  background-size: 100%;
+  background-image: url(../assets/fon.png);
+  display: flex;
+  justify-content: center;
+}
+
+#main {
+  width: 80vh;
+  background-color: #bd1e1e46;
+  margin: 15px;
+  padding: 15px;
+  border-style: solid;
+  border-color: #200000;
+}
+
+#input {
+  box-sizing: border-box;
+  height: 5vh;
+  width: 80vh;
+  background-color: #4D0000;
+  border-style: solid;
+  border-color: #200000;
+  font-family: "FF Trixie";
+  font-size: 150%;
+  color: #FF0000;
+  user-select: none;
+  outline: none;
+}
+
+#input::placeholder {
+  color: #A00000;
+}
+
+#add-button {
+  height: 5vh;
+  width: 80vh;
+  background-color: #4D0000;
+  border-style: solid;
+  border-color: #200000;
+  font-family: "FF Trixie";
+  font-size: 150%;
+  color: #A00000;
+  user-select: none;
+  transition: 150ms;
+}
+
+#add-button:hover {
+  color: #FF0000; 
+}
+
+#div-span {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+#span {
+  font-family: "FF Trixie";
+  font-size: 150%;
+  color: #A00000;
+  user-select: none;
+}
+
+#del-image {
+  height: 20px;
+  width: 20px;
+  background: none;
+  background-size: cover;
+  background-image: url(../assets/end.png);
+  border: none;
+  transition: 150ms;
+}
+
+#del-image:hover {
+  background-image: url(../assets/end_hover.png);
+}
+
+#end-image {
+  height: 20px;
+  width: 20px;
+  background: none;
+  background-size: cover;
+  background-image: url(../assets/del.png);
+  border: none;
+  transition: 150ms;
+}
+
+#end-image:hover {
+  background-image: url(../assets/del_hover.png);
+}
+
+.killed {
+  color: #FF0000 !important;
+  text-decoration: line-through;
+}
+
+.reason {
+  color: #FF0000 !important;;
+}
+
+.action {
+  /* padding-right: 10px; */
+  width: 50px;
+  display: inline-block;
+}
+
+hr {
+  border: none;
+  border: 1px solid #FF0000;
+}
