@@ -17,7 +17,7 @@ const EditItem = ({edit, people, setName, setReason, editPerson}) => {
     useEffect(()=>{
         const filtered = people.find((item)=>item.id === edit.id)
         setPerson(filtered)
-    }, []) // Когда оно пустое вызывается один раз, Дима не благодари
+    }, [])
 
     return(
       <>
