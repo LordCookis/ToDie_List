@@ -90,6 +90,20 @@ body {
   background-image: url(../assets/del_hover.png);
 }
 
+#edit-image {
+  height: 20px;
+  width: 20px;
+  background: none;
+  background-size: cover;
+  background-image: url(../assets/edit.png);
+  border: none;
+  transition: 150ms;
+}
+
+#edit-image:hover {
+  background-image: url(../assets/edit_hover.png);
+}
+
 .killed {
   color: #FF0000 !important;
   text-decoration: line-through;
@@ -101,7 +115,7 @@ body {
 
 .action {
   /* padding-right: 10px; */
-  width: 50px;
+  width: 75px;
   display: inline-block;
 }
 
