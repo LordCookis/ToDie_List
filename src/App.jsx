@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './styles/App.css'
+import { services } from './services'
+import LoginPage from './components/LoginPage'
 import AddItem from './components/AddItem'
 import EditItem from './components/EditItem'
 import People from './components/People'
@@ -11,6 +13,15 @@ function App() {
   const [reason, setReason] = useState("")
   const [people, setPeople] = useState([])
   const [edit, setEdit] = useState({mod: false, id: 0})
+
+  useEffect(()=>{
+    getPeople()
+  }, [])
+
+  const getPeople = async() => {
+    const result = await services.todo.get()
+    setPeople(result)
+  }
 
   const addPerson = (e) => {
     e.preventDefault()
@@ -23,11 +34,13 @@ function App() {
       reason
     }
     setPeople([...people, person])
+    services.todo.add(id, name, reason)
   }
 
   const delPerson = (id) => {
     const filtered = people.filter((person) => person.id != id)
     setPeople(filtered)
+    services.todo.del(id)
   }
 
   const endPerson = (id) => {
@@ -35,6 +48,7 @@ function App() {
       return person.id === id ? {...person, killed: true} : person
     })
     setPeople(filtered)
+    services.todo.end(id)
   }
 
   const editPerson = (id) => {
@@ -44,30 +58,34 @@ function App() {
     setEdit({...edit, mod: false})
     setReason("")
     setPeople(filtered)
+    services.todo.upd(id, name, reason)
   }
 
   return (
     <div id="main">
-      {!edit.mod ? <AddItem 
-        setName={setName}
-        setReason={setReason}
-        addPerson={addPerson}
-      /> :
-      <EditItem
-        people={people}
-        edit={edit}
-        setName={setName}
-        setReason={setReason}
-        editPerson={editPerson}
-      />}
-      <People 
-        people={people}
-        edit={edit}
-        setEdit={setEdit}
-        delPerson={delPerson}
-        endPerson={endPerson}
-      />
+      <LoginPage/>
     </div>
+    //<div id="main">
+    //  {!edit.mod ? <AddItem 
+    //    setName={setName}
+    //    setReason={setReason}
+    //    addPerson={addPerson}
+    //  /> :
+    //  <EditItem
+    //    people={people}
+    //    edit={edit}
+    //    setName={setName}
+    //    setReason={setReason}
+    //    editPerson={editPerson}
+    //  />}
+    //  <People 
+    //    people={people}
+    //    edit={edit}
+    //    setEdit={setEdit}
+    //    delPerson={delPerson}
+    //    endPerson={endPerson}
+    //  />
+    //</div>
   )
 }
 

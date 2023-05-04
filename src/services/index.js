@@ -1,5 +1,7 @@
 import { todoServices } from "./todo.services"
+import { loginServices } from "./login.services"
 
 export const services = {
-  todo: todoServices
+  todo: todoServices,
+  login: loginServices
 }

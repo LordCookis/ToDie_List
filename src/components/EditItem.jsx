@@ -32,4 +32,4 @@ const EditItem = ({edit, people, setName, setReason, editPerson}) => {
     )
   }
   
-  export default EditItem
+export default EditItem

@@ -32,6 +32,11 @@ body {
   color: #A00000;
 }
 
+#input::selection {
+  color: #200000;
+  background: #FF0000;
+}
+
 #add-button {
   height: 5vh;
   width: 80vh;
@@ -59,6 +64,13 @@ body {
   font-family: "FF Trixie";
   font-size: 150%;
   color: #A00000;
+  user-select: none;
+}
+
+#reg-span {
+  font-family: "FF Trixie";
+  font-size: 200%;
+  color: #FF0000;
   user-select: none;
 }
 
@@ -122,4 +134,11 @@ body {
 hr {
   border: none;
   border: 1px solid #FF0000;
+}
+
+#check_label {
+  font-family: "FF Trixie";
+  font-size: 120%;
+  color: #FF0000;
+  user-select: none;
 }
