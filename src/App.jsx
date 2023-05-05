@@ -13,13 +13,14 @@ function App() {
   const [reason, setReason] = useState("")
   const [people, setPeople] = useState([])
   const [edit, setEdit] = useState({mod: false, id: 0})
+  const [session, setSession] = useState(false)
 
   useEffect(()=>{
-    getPeople()
-  }, [])
+    session && getPeople()
+  }, [session])
 
   const getPeople = async() => {
-    const result = await services.todo.get()
+    const result = await services.todo.get(session.login)
     setPeople(result)
   }
 
@@ -31,10 +32,11 @@ function App() {
       id,
       name,
       killed: false,
-      reason
+      reason,
+      owner: session.login
     }
     setPeople([...people, person])
-    services.todo.add(id, name, reason)
+    services.todo.add(id, name, reason, session.login)
   }
 
   const delPerson = (id) => {
@@ -62,30 +64,33 @@ function App() {
   }
 
   return (
-    <div id="main">
-      <LoginPage/>
+    <>
+    <div id="main"><center><span id="main-span">Темное Братство</span></center><hr />
+      {!session ? <LoginPage
+        setSession={setSession}
+      /> :
+      <>{!edit.mod ? <AddItem 
+        setName={setName}
+        setReason={setReason}
+        addPerson={addPerson}
+      /> :
+      <EditItem
+        people={people}
+        edit={edit}
+        setName={setName}
+        setReason={setReason}
+        editPerson={editPerson}
+      />}
+      <People 
+        people={people}
+        edit={edit}
+        setEdit={setEdit}
+        delPerson={delPerson}
+        endPerson={endPerson}
+        setSession={setSession}
+      /></>}
     </div>
-    //<div id="main">
-    //  {!edit.mod ? <AddItem 
-    //    setName={setName}
-    //    setReason={setReason}
-    //    addPerson={addPerson}
-    //  /> :
-    //  <EditItem
-    //    people={people}
-    //    edit={edit}
-    //    setName={setName}
-    //    setReason={setReason}
-    //    editPerson={editPerson}
-    //  />}
-    //  <People 
-    //    people={people}
-    //    edit={edit}
-    //    setEdit={setEdit}
-    //    delPerson={delPerson}
-    //    endPerson={endPerson}
-    //  />
-    //</div>
+    </>
   )
 }
 
