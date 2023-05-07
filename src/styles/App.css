@@ -144,9 +144,28 @@ hr {
   border: 1px solid #FF0000;
 }
 
-#check_label {
+.div-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 3vh;
+  width: 3vh;
+  background-color: #4D0000;
+  border: 2px solid #200000;
   font-family: "FF Trixie";
-  font-size: 120%;
-  color: #FF0000;
+  font-size: 150%;
+  color: #A00000;
   user-select: none;
+  outline: none;
+  transition: 150ms;
+}
+
+.page:hover {
+  color: #FF0000;
 }

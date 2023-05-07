@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Login from "./Registration/Login"
 import Register from "./Registration/Register"
 import { services } from "../services"

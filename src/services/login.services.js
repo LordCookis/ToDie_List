@@ -9,13 +9,27 @@ export const loginServices = {
         await supabase.from('account').insert({ login, password })
     },
     async get(login, password){
+        let account = {
+            "login": ""
+        }
+        account.login = sessionStorage.getItem("login")
+        if (account.login) {
+            return account
+        }
         const { data, error } = await supabase.from('account').select().eq("login", login)
-        if(!data.length)
+        if (!data.length) {
             return null
-        if(data[0].password !== password)
+        }
+        if (data[0].password !== password){ 
             return null
-        if (error)
+        }
+        if (error) {
             return error
+        }
+        sessionStorage.setItem("login", data[0].login)
         return data[0]
+    },
+    async remove() {
+        sessionStorage.removeItem("login")
     }
 }

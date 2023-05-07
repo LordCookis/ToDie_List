@@ -3,7 +3,6 @@ import { supabase } from '../supabaseClient'
 export const todoServices = {
     async add(id, name, reason, owner){
         const { error } = await supabase.from('people').insert({ id, name, reason, owner })
-        console.log(owner)
     },
     async del(id){
         const { error } = await supabase.from('people').delete().eq('id', id)

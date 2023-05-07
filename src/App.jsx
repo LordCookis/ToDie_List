@@ -16,9 +16,20 @@ function App() {
   const [session, setSession] = useState(false)
 
   useEffect(()=>{
-    session && getPeople()
-  }, [session])
+    !session && login()
+    !people.length && session && getPeople()
+  },[session])
+  
+  const logout = () => {
+    setSession(false)
+    services.login.remove()
+  }
 
+  const login = async() => {
+    const data = await services.login.get()
+    setSession(data)
+  }
+  
   const getPeople = async() => {
     const result = await services.todo.get(session.login)
     setPeople(result)
@@ -37,6 +48,8 @@ function App() {
     }
     setPeople([...people, person])
     services.todo.add(id, name, reason, session.login)
+    setName("")
+    setReason("")
   }
 
   const delPerson = (id) => {
@@ -58,9 +71,16 @@ function App() {
       return person.id === id ? {...person, name, reason} : person
     })
     setEdit({...edit, mod: false})
+    setName("")
     setReason("")
     setPeople(filtered)
     services.todo.upd(id, name, reason)
+  }
+
+  const startEdit = (editname, editreason, editid) => {
+    setName(editname)
+    setReason(editreason)
+    setEdit({mod: true, id: editid})
   }
 
   return (
@@ -70,24 +90,27 @@ function App() {
         setSession={setSession}
       /> :
       <>{!edit.mod ? <AddItem 
+        name={name}
+        reason={reason}
         setName={setName}
         setReason={setReason}
         addPerson={addPerson}
       /> :
       <EditItem
+        name={name}
+        reason={reason}
         people={people}
         edit={edit}
         setName={setName}
         setReason={setReason}
         editPerson={editPerson}
       />}
-      <People 
+      <People
         people={people}
-        edit={edit}
-        setEdit={setEdit}
+        startEdit={startEdit}
         delPerson={delPerson}
         endPerson={endPerson}
-        setSession={setSession}
+        logout={logout}
       /></>}
     </div>
     </>
