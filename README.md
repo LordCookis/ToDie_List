@@ -1,1 +1,1 @@
-[![My Skills](https://ltdfoto.ru/image/iNxmWi)
+[![My Skills](https://ltdfoto.ru/image/iNxmWi.png)
