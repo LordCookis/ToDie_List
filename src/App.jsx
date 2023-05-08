@@ -14,6 +14,7 @@ function App() {
   const [people, setPeople] = useState([])
   const [edit, setEdit] = useState({mod: false, id: 0})
   const [session, setSession] = useState(false)
+  const [page, setPage] = useState(0)
 
   useEffect(()=>{
     !session && login()
@@ -106,6 +107,8 @@ function App() {
         editPerson={editPerson}
       />}
       <People
+        page={page}
+        setPage={setPage}
         people={people}
         startEdit={startEdit}
         delPerson={delPerson}

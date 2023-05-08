@@ -3,6 +3,7 @@ body {
   background-image: url(../assets/fon.png);
   display: flex;
   justify-content: center;
+  user-select: none;
 }
 
 #main {
@@ -20,7 +21,6 @@ body {
   color: #FF0000;
   user-select: none;
 }
-
 
 #input {
   box-sizing: border-box;
@@ -144,28 +144,55 @@ hr {
   border: 1px solid #FF0000;
 }
 
-.div-page {
+#div-page {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  height: 3vh;
-  width: 3vh;
+#page-button {
+  height: 5vh;
+  width: 30vh;
   background-color: #4D0000;
-  border: 2px solid #200000;
+  border-style: solid;
+  border-color: #200000;
   font-family: "FF Trixie";
   font-size: 150%;
   color: #A00000;
   user-select: none;
-  outline: none;
   transition: 150ms;
 }
 
-.page:hover {
+#page-button:hover {
   color: #FF0000;
+}
+
+#page-span {
+  padding: 4px 20px;
+  width: max-content;
+  background-color: #4D0000;
+  border: 2px solid #200000;
+  font-family: "FF Trixie";
+  font-size: 200%;
+  color: #A00000;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #200000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4D0000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #FF0000;
 }
