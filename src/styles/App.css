@@ -178,18 +178,7 @@ hr {
   user-select: none;
 }
 
-#page-span-button {
-  padding: 4px 20px;
-  width: max-content;
-  background-color: #4D0000;
-  border: 2px solid #200000;
-  font-family: "FF Trixie";
-  font-size: 200%;
-  color: #A00000;
-  user-select: none;
-}
-
-#page-span-button:hover {
+#page-span:hover {
   color: #FF0000;
 }
 

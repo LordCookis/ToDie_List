@@ -19,12 +19,11 @@ const People = ({page, setPage, people, delPerson, startEdit, endPerson, logout}
       <>
         <hr />
         <button id="add-button" onClick={logout}>Покинуть убежище</button><hr />
-
         <PageButtons
+          total={total}
           page={page}
           people={people}
-          setPage={setPage}
-          total={total}/>
+          setPage={setPage}/>
 
         <PeopleList
           from={from}
