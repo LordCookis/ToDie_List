@@ -11,7 +11,6 @@ const People = ({page, setPage, people, delPerson, startEdit, endPerson, logout}
         setPage(page-1)
       }
       setTotal(Math.ceil(people.length / 10))
-      console.log(total)
       setFrom(page * 10)
     }, [page, people])
 
