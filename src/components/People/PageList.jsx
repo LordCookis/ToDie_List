@@ -1,12 +1,4 @@
-import { useEffect } from "react"
-
 export const PageList = ({total, setPage, page}) =>{
-
-  useEffect(()=>{
-    console.log("page", page)
-    console.log("total", total)
-  },[page])
-
   return(
     <>
     <center className="pages">
