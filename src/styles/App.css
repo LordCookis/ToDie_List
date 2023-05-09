@@ -196,3 +196,17 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
   background: #FF0000;
 }
+
+.active{
+  background: #800000 !important;
+  color: red !important;
+}
+
+.pages{
+  padding: 2px 0px 7px 0px;
+}
+
+.pages button{
+  text-align: center;
+  width: 70px !important;
+}
