@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react"
-
-const EditItem = ({name, reason, edit, people, setName, setReason, editPerson}) => {
+const EditItem = ({name, reason, edit, setName, setReason, editPerson}) => {
 
     const submitEdit = () => {
       editPerson(edit.id)
     }
-
-    useEffect(()=>{
-      const filtered = people.find((item)=>item.id === edit.id)
-    }, [])
 
     return(
       <>
