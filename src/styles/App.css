@@ -152,7 +152,7 @@ hr {
 
 #page-button {
   height: 5vh;
-  width: 30vh;
+  width: 20vh;
   background-color: #4D0000;
   border-style: solid;
   border-color: #200000;
@@ -178,18 +178,7 @@ hr {
   user-select: none;
 }
 
-#page-span-button {
-  padding: 4px 20px;
-  width: max-content;
-  background-color: #4D0000;
-  border: 2px solid #200000;
-  font-family: "FF Trixie";
-  font-size: 200%;
-  color: #A00000;
-  user-select: none;
-}
-
-#page-span-button:hover {
+#page-span:hover {
   color: #FF0000;
 }
 
@@ -215,10 +204,6 @@ hr {
 .active{
   background: #800000 !important;
   color: red !important;
-}
-
-.pages{
-  padding: 2px 0px 7px 0px;
 }
 
 .pages button{
