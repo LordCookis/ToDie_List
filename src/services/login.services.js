@@ -2,7 +2,7 @@ import { supabase } from '../supabaseClient'
 
 export const loginServices = {
     async add(login, password){
-        const { data, error } = await supabase.from('account').select().eq("login", login)
+        const { data } = await supabase.from('account').select().eq("login", login)
         if (data.length) {
             return null
         }

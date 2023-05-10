@@ -152,7 +152,7 @@ hr {
 
 #page-button {
   height: 5vh;
-  width: 20vh;
+  width: 10vw;
   background-color: #4D0000;
   border-style: solid;
   border-color: #200000;
@@ -206,7 +206,16 @@ hr {
   color: red !important;
 }
 
+.pages{
+  padding: 0px;
+}
+
 .pages button{
   text-align: center;
   width: 70px !important;
+}
+
+.pages button:hover{
+  color: #be0000 !important;
+  background: #750000 !important;
 }
